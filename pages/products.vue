@@ -6,14 +6,14 @@
 
     <h1 class="text-4xl font-extrabold text-red-600 tracking-tight">Список продуктів</h1>
 
-    <!-- Search -->
+
     <UInput
         v-model="search"
         placeholder="Пошук продуктів..."
         class="w-full bg-gray-800 text-white placeholder-gray-400 border-2 border-gray-600 rounded-xl py-3 px-6 text-lg shadow-lg focus:ring-4 focus:ring-red-500 transition"
     />
 
-    <!-- Sort Controls -->
+
     <div class="flex flex-wrap gap-4 items-center">
       <label class="text-lg font-medium text-gray-300">Сортувати за:</label>
       <select
@@ -31,13 +31,13 @@
           @click="toggleSortDirection"
           class="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-600 to-red-500 text-white hover:from-red-700 hover:to-red-600 transition shadow-lg"
       >
-        <!-- Use FontAwesome icons for arrows instead of emoji -->
+
         <i :class="sort.direction === 'asc' ? 'fa-solid fa-arrow-up' : 'fa-solid fa-arrow-down'"></i>
         <span>{{ sort.direction === 'asc' ? 'Зростання' : 'Спадання' }}</span>
       </button>
     </div>
 
-    <!-- Table -->
+
     <div class="overflow-x-auto rounded-lg border border-gray-700 shadow-lg bg-gradient-to-b from-gray-800 via-gray-700 to-gray-900">
       <UTable
           :rows="paginatedProducts"
@@ -46,21 +46,19 @@
           sort-mode="manual"
           class="min-w-[1000px] bg-gradient-to-b from-gray-800 via-gray-700 to-gray-900 text-white shadow-xl"
       >
-        <!-- Description -->
+
         <template #description-data="{ row }">
           <div class="description-clamp text-sm text-gray-300">
             {{ row.description }}
           </div>
         </template>
 
-        <!-- Rating -->
         <template #rating-data="{ row }">
           <span :class="row.rating < 4.5 ? 'text-red-400' : 'text-green-400'">
             {{ row.rating.toFixed(1) }}
           </span>
         </template>
 
-        <!-- Thumbnail -->
         <template #thumbnail-data="{ row }">
           <div class="flex justify-center">
             <img
@@ -195,10 +193,10 @@ const columns: DataTableColumns<Product> = [
 </script>
 
 <style scoped>
-/* Import FontAwesome icons */
+
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
-/* Carbon-fiber background pattern */
+
 body {
   background: #121212;
   background-image: radial-gradient(circle, rgba(0, 0, 0, 0.8) 1px, transparent 1px),
@@ -255,6 +253,6 @@ button:hover {
 
 input:focus, select:focus, button:focus {
   outline: none;
-  box-shadow: 0 0 10px rgba(255, 76, 76, 0.8); /* Red glow effect */
+  box-shadow: 0 0 10px rgba(255, 76, 76, 0.8);
 }
 </style>
