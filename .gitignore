@@ -12,11 +12,12 @@ node_modules
 # Logs
 logs
 *.log
+yarn-error.log
 
 # Misc
 .DS_Store
 .fleet
-../.idea
+.idea/
 
 # Local env files
 .env
